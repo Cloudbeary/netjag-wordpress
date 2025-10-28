@@ -3,10 +3,18 @@ wp-config.php
 wp-config-local.php
 wp-config-production.php
 
-# Database Files
+# Allow wp-config template for deployment
+!wp-config-template.php
+
+# Database Files (exclude actual database backups)
 *.sql
 *.sql.gz
 *.sql.bz2
+
+# Allow documentation files
+!README.md
+!database_import_instructions.md
+!deployment_config.md
 
 # Log Files
 *.log
