@@ -1,0 +1,122 @@
+# WordPress Core Files
+wp-config.php
+wp-config-local.php
+wp-config-production.php
+
+# Database Files
+*.sql
+*.sql.gz
+*.sql.bz2
+
+# Log Files
+*.log
+error_log
+debug.log
+
+# Cache Files
+wp-content/cache/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+
+# Backup Files
+wp-content/backups/
+wp-content/ai1wm-backups/
+*.backup
+*.bak
+
+# Uploads Directory (optional - uncomment if you don't want to track uploads)
+# wp-content/uploads/
+
+# Plugin and Theme Development
+node_modules/
+npm-debug.log
+.npm
+.sass-cache/
+*.css.map
+*.js.map
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment Files
+.env
+.env.local
+.env.production
+.env.staging
+
+# Temporary Files
+*.tmp
+*.temp
+wp-content/upgrade/
+
+# Security
+.htaccess.backup
+wp-config-sample.php
+
+# Composer
+vendor/
+composer.lock
+
+# NPM/Yarn
+package-lock.json
+yarn.lock
+
+# Build Files
+dist/
+build/
+*.min.js
+*.min.css
+
+# WordPress Specific
+wp-content/mu-plugins/
+wp-content/object-cache.php
+wp-content/db.php
+wp-content/sunrise.php
+
+# Plugin Specific Ignores
+wp-content/plugins/akismet/
+wp-content/plugins/hello.php
+
+# Theme Specific (keep your custom themes)
+wp-content/themes/twenty*/
+
+# Error and Access Logs
+logs/
+*.log
+
+# Runtime Data
+pids/
+*.pid
+*.seed
+
+# Coverage Directory used by tools like istanbul
+coverage/
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# Deployment specific
+deployment_config.md
+database_import_instructions.md
+wp-config-template.php
