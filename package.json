@@ -1,0 +1,31 @@
+{
+  "name": "netjag-wordpress-site",
+  "version": "1.0.0",
+  "description": "NetJag WordPress site migrated to Vercel with PlanetScale",
+  "main": "public_html/index.php",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'WordPress build complete'",
+    "deploy": "vercel --prod",
+    "db:migrate": "echo 'Import SQL dump to PlanetScale manually'"
+  },
+  "keywords": [
+    "wordpress",
+    "vercel",
+    "planetscale",
+    "listingpro",
+    "directory"
+  ],
+  "author": "NetJag",
+  "license": "GPL-3.0",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/netjag-wordpress"
+  }
+}

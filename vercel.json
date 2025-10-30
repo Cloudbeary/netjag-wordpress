@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "functions": {
+    "public_html/index.php": {
+      "runtime": "vercel-php@0.7.1"
+    },
+    "public_html/**/*.php": {
+      "runtime": "vercel-php@0.7.1"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/public_html/$1"
+    },
+    {
+      "src": "/wp-admin/(.*)",
+      "dest": "/public_html/wp-admin/$1"
+    },
+    {
+      "src": "/wp-content/(.*)",
+      "dest": "/public_html/wp-content/$1"
+    },
+    {
+      "src": "/wp-includes/(.*)",
+      "dest": "/public_html/wp-includes/$1"
+    },
+    {
+      "src": "/(.*\\.php)$",
+      "dest": "/public_html/$1"
+    }
+  ],
+  "env": {
+    "DB_NAME": "@db_name",
+    "DB_USER": "@db_user", 
+    "DB_PASSWORD": "@db_password",
+    "DB_HOST": "@db_host",
+    "WP_HOME": "@wp_home",
+    "WP_SITEURL": "@wp_siteurl"
+  },
+  "build": {
+    "env": {
+      "PHP_VERSION": "8.1"
+    }
+  }
+}

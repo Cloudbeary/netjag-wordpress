@@ -1,56 +1,5 @@
 # WordPress Core Files
-wp-config.php
-wp-config-local.php
-wp-config-production.php
-
-# Allow wp-config template for deployment
-!wp-config-template.php
-
-# Database Files (exclude actual database backups)
-*.sql
-*.sql.gz
-*.sql.bz2
-
-# Allow documentation files
-!README.md
-!database_import_instructions.md
-!deployment_config.md
-
-# Log Files
-*.log
-error_log
-debug.log
-
-# Cache Files
-wp-content/cache/
-wp-content/advanced-cache.php
-wp-content/wp-cache-config.php
-
-# Backup Files
-wp-content/backups/
-wp-content/ai1wm-backups/
-*.backup
-*.bak
-
-# Uploads Directory (optional - uncomment if you don't want to track uploads)
-# wp-content/uploads/
-
-# Plugin and Theme Development
-node_modules/
-npm-debug.log
-.npm
-.sass-cache/
-*.css.map
-*.js.map
-
-# IDE and Editor Files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-Thumbs.db
+public_html/wp-config.php
 
 # Environment Files
 .env
@@ -58,73 +7,57 @@ Thumbs.db
 .env.production
 .env.staging
 
-# Temporary Files
-*.tmp
-*.temp
-wp-content/upgrade/
+# Logs
+*.log
+public_html/wp-content/debug.log
+public_html/wp-content/*.log
 
-# Security
-.htaccess.backup
-wp-config-sample.php
+# Cache and Temporary Files
+public_html/wp-content/cache/
+public_html/wp-content/uploads/cache/
+public_html/wp-content/w3tc-config/
+public_html/wp-content/backup-db/
+public_html/wp-content/backups/
+public_html/wp-content/upgrade/
+public_html/wp-content/uploads/backup-guard/
 
-# Composer
-vendor/
-composer.lock
+# Plugin and Theme Development
+public_html/wp-content/plugins/*/node_modules/
+public_html/wp-content/themes/*/node_modules/
 
-# NPM/Yarn
-package-lock.json
-yarn.lock
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Build Files
-dist/
-build/
-*.min.js
-*.min.css
+# Vercel
+.vercel
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup Files
+*.bak
+*.backup
+*.sql.gz
+*.sql.bz2
 
 # WordPress Specific
-wp-content/mu-plugins/
-wp-content/object-cache.php
-wp-content/db.php
-wp-content/sunrise.php
-
-# Plugin Specific Ignores
-wp-content/plugins/akismet/
-wp-content/plugins/hello.php
-
-# Theme Specific (keep your custom themes)
-wp-content/themes/twenty*/
-
-# Error and Access Logs
-logs/
-*.log
-
-# Runtime Data
-pids/
-*.pid
-*.seed
-
-# Coverage Directory used by tools like istanbul
-coverage/
-
-# Dependency directories
-jspm_packages/
-
-# Optional npm cache directory
-.npm
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# dotenv environment variables file
-.env
-
-# Deployment specific
-deployment_config.md
-database_import_instructions.md
-wp-config-template.php
+public_html/wp-content/ai1wm-backups/
+public_html/wp-content/updraft/
+public_html/wp-content/uploads/wp-migrate-db/
+public_html/wp-content/wflogs/

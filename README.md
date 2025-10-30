@@ -1,82 +1,100 @@
-# NetJag.co.za - WordPress Website
+# NetJag WordPress Site - Vercel + PlanetScale Migration
 
-A professional WordPress website for NetJag, featuring directory listings, contact forms, and modern design.
+This repository contains the migrated WordPress site for NetJag.co.za, optimized for deployment on Vercel with PlanetScale as the database backend.
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- PHP 7.2.24+ (8.1+ recommended)
-- MySQL 5.7+ or MariaDB 10.3+
-- Web server with PHP support
+- Node.js 16+ 
+- Git
+- PlanetScale CLI
+- Vercel CLI (optional)
 
-### Installation
+### Local Development
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd netjag-wordpress
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd netjag.co.za
-   ```
+# Install dependencies
+npm install
 
-2. **Set up the database**
-   - Create a MySQL/MariaDB database with UTF8MB4 support
-   - Import the database backup (contact admin for SQL file)
-   - Update database credentials in wp-config.php
+# Copy environment file
+cp .env.example .env.local
 
-3. **Configure WordPress**
-   - Copy `wp-config-template.php` to `wp-config.php`
-   - Update database credentials and site URLs
-   - Generate new security keys at https://api.wordpress.org/secret-key/1.1/salt/
+# Configure your environment variables
+# Edit .env.local with your PlanetScale credentials
 
-4. **Set file permissions**
-   ```bash
-   chmod 755 wp-content/
-   chmod 644 wp-config.php
-   ```
+# Start local development
+npm run dev
+```
 
-## 🏗️ Architecture
+## 📁 Project Structure
 
-### Core Components
-- **WordPress Core**: Latest version with security updates
-- **Theme**: ListingPro (custom directory theme)
-- **Database**: MySQL with UTF8MB4 encoding
+```
+├── public_html/                 # WordPress core files
+│   ├── wp-admin/               # WordPress admin
+│   ├── wp-content/             # Themes, plugins, uploads
+│   │   ├── themes/listingpro/  # Active theme
+│   │   ├── plugins/            # WordPress plugins
+│   │   └── uploads/            # Media files
+│   ├── wp-includes/            # WordPress core includes
+│   └── index.php               # WordPress entry point
+├── vercel.json                 # Vercel configuration
+├── package.json                # Node.js dependencies
+├── wp-config-vercel.php        # Production WordPress config
+├── .env.example                # Environment variables template
+├── DATABASE_MIGRATION.md       # Database migration guide
+├── MIGRATION_CHECKLIST.md      # Complete migration checklist
+└── README.md                   # This file
+```
+
+## 🎨 Theme & Features
+
+### Active Theme: ListingPro v2.9.6
+- **Type**: Directory/Listing theme
+- **Features**: Multi-purpose directory listings
+- **Author**: CridioStudio
+- **License**: GPL v3
 
 ### Key Plugins
-- **Elementor**: Page builder for custom layouts
-- **WPForms Lite**: Contact and lead generation forms
-- **All-in-One SEO Pack**: Search engine optimization
-- **WP Mail SMTP**: Reliable email delivery
-- **All-in-One WP Migration**: Backup and migration tools
+- **ListingPro Plugin**: Core functionality
+- **Elementor**: Page builder
+- **WPForms Lite**: Contact forms
+- **WP Mail SMTP**: Email delivery
+- **All-in-One SEO Pack**: SEO optimization
+- **CubeWP Framework**: Custom post types
 
-### File Structure
-```
-public_html/
-├── wp-admin/           # WordPress admin interface
-├── wp-content/         # Themes, plugins, uploads
-│   ├── themes/         # ListingPro and default themes
-│   ├── plugins/        # Active plugins
-│   ├── uploads/        # Media files
-│   └── mu-plugins/     # Must-use plugins
-├── wp-includes/        # WordPress core files
-├── wp-config.php       # Configuration file
-├── index.php           # Main entry point
-└── .htaccess           # URL rewriting rules
-```
+## 🗄️ Database Information
+
+### Original Database
+- **Name**: u756990857_vWo3d
+- **Tables**: 32 total
+- **Posts**: 437 posts/pages
+- **Users**: Multiple user accounts
+- **Custom Tables**: ListingPro, WPForms, Action Scheduler
+
+### Migration Target
+- **Platform**: PlanetScale
+- **Database**: netjag-wordpress
+- **Charset**: utf8mb4
+- **Collation**: utf8mb4_unicode_ci
 
 ## 🔧 Configuration
 
 ### Environment Variables
-Set these in your hosting platform:
+Required environment variables for production:
 
 ```env
-# Database Configuration
-DB_NAME=your_database_name
-DB_USER=your_database_user
-DB_PASSWORD=your_database_password
-DB_HOST=your_database_host
+# Database
+DB_NAME=netjag-wordpress
+DB_USER=your_planetscale_username
+DB_PASSWORD=your_planetscale_password
+DB_HOST=your_planetscale_host.psdb.cloud
 
-# Site URLs
-WP_HOME=https://netjag.co.za
-WP_SITEURL=https://netjag.co.za
+# WordPress URLs
+WP_HOME=https://your-vercel-domain.vercel.app
+WP_SITEURL=https://your-vercel-domain.vercel.app
 
 # Security Keys (generate new ones)
 AUTH_KEY=your_auth_key
@@ -87,123 +105,160 @@ AUTH_SALT=your_auth_salt
 SECURE_AUTH_SALT=your_secure_auth_salt
 LOGGED_IN_SALT=your_logged_in_salt
 NONCE_SALT=your_nonce_salt
+WP_CACHE_KEY_SALT=your_cache_key_salt
+```
 
-# Debug Settings (set to false in production)
-WP_DEBUG=false
-WP_DEBUG_LOG=false
+### Vercel Configuration
+The `vercel.json` file is configured for:
+- PHP 8.1 runtime
+- WordPress routing
+- Environment variable mapping
+- Static asset serving
+
+## 📋 Migration Steps
+
+### 1. Database Migration
+Follow the detailed guide in `DATABASE_MIGRATION.md`:
+1. Set up PlanetScale database
+2. Clean and import SQL dump
+3. Update WordPress URLs
+4. Deploy to production
+
+### 2. Vercel Deployment
+1. Connect repository to Vercel
+2. Configure environment variables
+3. Deploy and test
+
+### 3. Verification
+Use the comprehensive checklist in `MIGRATION_CHECKLIST.md` to verify:
+- Core functionality
+- Theme and plugins
+- Content integrity
+- Performance
+- Security
+
+## 🛠️ Development Commands
+
+```bash
+# Local development
+npm run dev
+
+# Build for production
+npm run build
+
+# Deploy to Vercel
+npm run deploy
+
+# Database migration (manual)
+npm run db:migrate
+```
+
+## 🔒 Security Features
+
+- HTTPS enforced
+- File editing disabled in admin
+- Strong database passwords
+- Environment-based configuration
+- Secure authentication keys
+
+## 📊 Performance Optimizations
+
+- Vercel edge caching
+- Optimized PHP runtime
+- Database connection pooling
+- Static asset optimization
+- WordPress caching enabled
+
+## 🚨 Troubleshooting
+
+### Common Issues
+
+1. **Database Connection Errors**
+   - Verify PlanetScale credentials
+   - Check SSL configuration
+   - Confirm database name
+
+2. **File Upload Issues**
+   - Check file permissions
+   - Verify upload directory
+   - Review max file size limits
+
+3. **Plugin Conflicts**
+   - Deactivate plugins individually
+   - Check error logs
+   - Verify compatibility
+
+### Debug Mode
+To enable debug mode, set in environment:
+```env
+WP_DEBUG=true
+WP_DEBUG_LOG=true
 WP_DEBUG_DISPLAY=false
 ```
 
-### Server Requirements
-- **PHP Version**: 7.2.24 minimum, 8.1+ recommended
-- **Memory Limit**: 256MB minimum, 512MB recommended
-- **Max Execution Time**: 300 seconds
-- **Upload Limit**: 64MB
-- **Required Extensions**: mysqli, gd, curl, mbstring, xml, zip, json
+## 📈 Monitoring
 
-## 🚀 Deployment
+### Recommended Monitoring
+- Vercel Analytics
+- PlanetScale Insights
+- WordPress health checks
+- Uptime monitoring
+- Performance tracking
 
-### Supported Platforms
-- **Traditional PHP Hosting**: cPanel, Plesk, DirectAdmin
-- **Cloud Platforms**: DigitalOcean, AWS, Google Cloud
-- **Managed WordPress**: WP Engine, Kinsta, SiteGround
+### Key Metrics
+- Page load time < 3 seconds
+- Database response time < 100ms
+- 99.9% uptime target
+- Core Web Vitals optimization
 
-### Deployment Steps
-1. Set up hosting environment with PHP and MySQL
-2. Upload files maintaining directory structure
-3. Import database with UTF8MB4 encoding
-4. Configure wp-config.php with new credentials
-5. Update site URLs in database
-6. Test functionality and SSL certificate
+## 🔄 Backup Strategy
 
-### Database Migration
-```sql
--- Update site URLs after migration
-UPDATE wp_options SET option_value = 'https://netjag.co.za' WHERE option_name = 'home';
-UPDATE wp_options SET option_value = 'https://netjag.co.za' WHERE option_name = 'siteurl';
-```
+### Automated Backups
+- PlanetScale: Daily automated backups
+- Vercel: Deployment history
+- Git: Version control
 
-## 🔒 Security
-
-### Best Practices
-- Keep WordPress core and plugins updated
-- Use strong passwords and 2FA
-- Regular backups
-- Security monitoring
-- SSL certificate
-- Firewall protection
-
-### Sensitive Files
-- `wp-config.php` - Contains database credentials
-- `.htaccess` - Server configuration
-- `wp-content/uploads/` - May contain sensitive files
-
-## 🛠️ Development
-
-### Local Development
-1. Set up local LAMP/WAMP/MAMP stack
-2. Import database and files
-3. Update wp-config.php for local environment
-4. Enable debug mode for development
-
-### Plugin Development
-- Follow WordPress coding standards
-- Use proper hooks and filters
-- Test with debug mode enabled
-- Document custom functionality
-
-## 📊 Features
-
-### Directory Listings
-- Business directory functionality via ListingPro theme
-- Advanced search and filtering
-- User submissions and management
-- Review and rating system
-
-### Contact Forms
-- Multiple contact forms via WPForms
-- Lead capture and management
-- Email notifications
-- Spam protection
-
-### SEO Optimization
-- All-in-One SEO Pack configuration
-- Meta tags and descriptions
-- XML sitemaps
-- Social media integration
-
-## 🐛 Troubleshooting
-
-### Common Issues
-1. **White Screen of Death**: Check error logs, increase memory limit
-2. **Database Connection Error**: Verify credentials in wp-config.php
-3. **Plugin Conflicts**: Deactivate plugins one by one to identify issues
-4. **Permission Errors**: Set correct file permissions (755/644)
-
-### Debug Mode
-Enable in wp-config.php for troubleshooting:
-```php
-define('WP_DEBUG', true);
-define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', false);
-```
+### Manual Backups
+- Database exports via PlanetScale CLI
+- File system snapshots
+- Configuration backups
 
 ## 📞 Support
 
-For technical support or questions about this WordPress installation:
-- Check WordPress documentation: https://wordpress.org/support/
-- Review plugin documentation for specific features
-- Contact hosting provider for server-related issues
+### Documentation
+- `DATABASE_MIGRATION.md`: Database setup guide
+- `MIGRATION_CHECKLIST.md`: Complete migration steps
+- `.env.example`: Environment configuration
+
+### External Resources
+- [Vercel Documentation](https://vercel.com/docs)
+- [PlanetScale Documentation](https://docs.planetscale.com)
+- [WordPress Codex](https://codex.wordpress.org)
 
 ## 📄 License
 
-This WordPress installation includes:
-- WordPress Core (GPL v2 or later)
-- Various plugins (see individual plugin licenses)
-- Custom theme and content (proprietary)
+This project maintains the original WordPress GPL v3 license. The ListingPro theme is licensed separately.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📝 Changelog
+
+### v1.0.0 - Initial Migration
+- Migrated from traditional hosting to Vercel
+- Database moved to PlanetScale
+- Optimized for serverless environment
+- Security enhancements implemented
+- Performance optimizations added
 
 ---
 
-**Last Updated**: January 2025  
-**WordPress Version**: Latest  
-**PHP Version**: 7.2.24+
+**Original Site**: https://netjag.co.za  
+**New Site**: https://your-vercel-domain.vercel.app  
+**Migration Date**: [Date]  
+**Status**: ✅ Ready for deployment
