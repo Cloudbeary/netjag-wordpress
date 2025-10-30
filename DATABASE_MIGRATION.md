@@ -1,12 +1,12 @@
-# Database Migration Guide: WordPress to PlanetScale
+# Database Migration Guide: WordPress to Neon
 
-This guide will help you migrate your WordPress database from the SQL dump to PlanetScale.
+This guide will help you migrate your WordPress database from the SQL dump to Neon PostgreSQL.
 
 ## Prerequisites
 
-1. PlanetScale account (free tier available)
-2. PlanetScale CLI installed
-3. MySQL client or phpMyAdmin access
+1. Neon account (free tier available)
+2. Neon CLI installed
+3. PostgreSQL client or pgAdmin access
 4. The SQL dump file: `u756990857_vWo3d.sql`
 
 ## Step 1: Set Up PlanetScale Database

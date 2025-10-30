@@ -1,25 +1,24 @@
 <?php
 /**
- * WordPress configuration for Vercel deployment with PlanetScale
- * 
- * This file is optimized for Vercel hosting with PlanetScale MySQL database
+ * WordPress Configuration for Vercel + Neon
+ * Optimized for serverless deployment
  */
 
 // Enable WordPress cache for better performance on Vercel
 define( 'WP_CACHE', true );
 
-// ** Database settings for PlanetScale ** //
+// Database Configuration for Neon PostgreSQL
 /** The name of the database for WordPress */
-define( 'DB_NAME', $_ENV['DB_NAME'] ?? getenv('DB_NAME') ?? 'netjag_wordpress' );
+define( 'DB_NAME', $_ENV['DATABASE_NAME'] ?? getenv('DATABASE_NAME') ?? 'netjag_wordpress' );
 
 /** Database username */
-define( 'DB_USER', $_ENV['DB_USER'] ?? getenv('DB_USER') ?? '' );
+define( 'DB_USER', $_ENV['DATABASE_USERNAME'] ?? getenv('DATABASE_USERNAME') ?? '' );
 
 /** Database password */
-define( 'DB_PASSWORD', $_ENV['DB_PASSWORD'] ?? getenv('DB_PASSWORD') ?? '' );
+define( 'DB_PASSWORD', $_ENV['DATABASE_PASSWORD'] ?? getenv('DATABASE_PASSWORD') ?? '' );
 
-/** Database hostname - PlanetScale connection */
-define( 'DB_HOST', $_ENV['DB_HOST'] ?? getenv('DB_HOST') ?? '' );
+/** Database hostname - Neon connection */
+define( 'DB_HOST', $_ENV['DATABASE_HOST'] ?? getenv('DATABASE_HOST') ?? '' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
@@ -27,8 +26,8 @@ define( 'DB_CHARSET', 'utf8mb4' );
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
-// ** SSL Configuration for PlanetScale ** //
-define( 'MYSQL_SSL_CA', true );
+// SSL Configuration for Neon
+define( 'DB_SSL', true );
 
 /**#@+
  * Authentication unique keys and salts.

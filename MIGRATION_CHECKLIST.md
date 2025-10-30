@@ -1,4 +1,4 @@
-# WordPress to Vercel + PlanetScale Migration Checklist
+# WordPress to Vercel + Neon Migration Checklist
 
 ## Pre-Migration Preparation ✅
 
