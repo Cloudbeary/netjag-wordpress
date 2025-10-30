@@ -9,16 +9,16 @@ define( 'WP_CACHE', true );
 
 // Database Configuration for Neon PostgreSQL
 /** The name of the database for WordPress */
-define( 'DB_NAME', $_ENV['DATABASE_NAME'] ?? getenv('DATABASE_NAME') ?? 'netjag_wordpress' );
+define( 'DB_NAME', $_ENV['DB_NAME'] ?? getenv('DB_NAME') ?? 'netjag_wordpress' );
 
 /** Database username */
-define( 'DB_USER', $_ENV['DATABASE_USERNAME'] ?? getenv('DATABASE_USERNAME') ?? '' );
+define( 'DB_USER', $_ENV['DB_USER'] ?? getenv('DB_USER') ?? '' );
 
 /** Database password */
-define( 'DB_PASSWORD', $_ENV['DATABASE_PASSWORD'] ?? getenv('DATABASE_PASSWORD') ?? '' );
+define( 'DB_PASSWORD', $_ENV['DB_PASSWORD'] ?? getenv('DB_PASSWORD') ?? '' );
 
 /** Database hostname - Neon connection */
-define( 'DB_HOST', $_ENV['DATABASE_HOST'] ?? getenv('DATABASE_HOST') ?? '' );
+define( 'DB_HOST', $_ENV['DB_HOST'] ?? getenv('DB_HOST') ?? '' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
