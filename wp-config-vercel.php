@@ -35,14 +35,14 @@ define( 'DB_SSL', true );
  * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}.
  * These should be stored as environment variables in Vercel for security.
  */
-define( 'AUTH_KEY',          $_ENV['AUTH_KEY'] ?? 'kuF)OyLq&LL1,Yz~X_X23?)V8|/g0^~fk(WWBl3}H/qj*ft&5v7)E6:fpt:mBIi>' );
-define( 'SECURE_AUTH_KEY',   $_ENV['SECURE_AUTH_KEY'] ?? 'q,15j.{XE=Jiwt)-/$}4sQ_Bu:R*P93nPLmmyjyeoIl<9`*(Ex=GfYG*:e5OB<cA' );
-define( 'LOGGED_IN_KEY',     $_ENV['LOGGED_IN_KEY'] ?? '(J((A^v&R2-3<kq(rd=&/qXJPiU&/_gmh#1nCb8%=6bI0-62HXPmMabVlD-PttBb' );
-define( 'NONCE_KEY',         $_ENV['NONCE_KEY'] ?? 'l#/C+lvCt1e6q[}G<ivE>DALFhuaa=~Ord?yW~t$+y]/SFr(yL/^=;_D<hw<as|a' );
-define( 'AUTH_SALT',         $_ENV['AUTH_SALT'] ?? '+5mb0F@?Y1(4l[X{6AA;cwKo5,B1o%j0[tBnE;g6<<lw!JS!dMwNCWkIFGdJMQl_' );
-define( 'SECURE_AUTH_SALT',  $_ENV['SECURE_AUTH_SALT'] ?? '7K3HsHh~5ELX|U:yYO.TTZrbuQB3y,hY_5ub-4x:l<&X&2!fS[EpszHx@QLV|~|J' );
-define( 'LOGGED_IN_SALT',    $_ENV['LOGGED_IN_SALT'] ?? '|*GeqT+bY)Ezepg7DNpgFiM2m.(uTTRy*t56F^3$N?L)BRZWB}?2GFZPJCQAm(8C' );
-define( 'NONCE_SALT',        $_ENV['NONCE_SALT'] ?? 'u^tyo[NghFW`>uMS{vG.|:mWsNk;w2HxD{wgec}4_t?C-I0j`-V,Ac6vPf#86!r$' );
+define( 'AUTH_KEY',          $_ENV['AUTH_KEY'] ?? 'i`11.ieT.xL2[-<7^^kMB({w1aBHFiC>ob5RXG%e udnxQ`4E|O[V2O3J!|}VU={' );
+define( 'SECURE_AUTH_KEY',   $_ENV['SECURE_AUTH_KEY'] ?? 'UO-`}9ET=n,8UO!5_az1k2~!L+uvxZ{azak&=F#[yc;GXV*%jG{$2-turKIRu|Sb' );
+define( 'LOGGED_IN_KEY',     $_ENV['LOGGED_IN_KEY'] ?? '1*yrL|u8+NUg=)S(i@iY18KioN1rW+A-PgbOf.~le]qDd^|H^lhd+re@@Bh|:37f' );
+define( 'NONCE_KEY',         $_ENV['NONCE_KEY'] ?? '&-t|7+djmRH2i}#A4dN]1cv4E-(|co(*d?oFfh&4!,zUJ8O}m9jYryp-]R 2?m2<' );
+define( 'AUTH_SALT',         $_ENV['AUTH_SALT'] ?? 'sv|XWWifxvt^|.P<i_lok%hR0&j{z^0Omo|j@^Ra7wwI(%+|M0~-R&=cUtlI:=+B' );
+define( 'SECURE_AUTH_SALT',  $_ENV['SECURE_AUTH_SALT'] ?? '}wvh+9=Nl Vcf%ww/N8~za)$B7yT^[Nf%pFF<:7T;Syc*Zg7q5Da]tt+&3MC-{8@' );
+define( 'LOGGED_IN_SALT',    $_ENV['LOGGED_IN_SALT'] ?? '$Cekgw|+ (-d5LZXZNuF%n[#kdNJ#qBQGkk!3ks$yDX;IYPyI|_n?Zp 1moEn,.p' );
+define( 'NONCE_SALT',        $_ENV['NONCE_SALT'] ?? 'WyDEx*uEx/r;ho[vM*RKyf`jy{Vi3)g.LKeI>]j4QkoxG-5>Af<JYu;Z0jBHqTMR' );
 define( 'WP_CACHE_KEY_SALT', $_ENV['WP_CACHE_KEY_SALT'] ?? 'G$fw?%Xz5$]^XEx=>;nXD.@xK^@syVD)&v1pdHf:54^IwX{B3wcDygHf{MaMmyp@' );
 
 /**#@-*/
