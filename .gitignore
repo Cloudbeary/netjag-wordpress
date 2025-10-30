@@ -55,9 +55,13 @@ Thumbs.db
 *.backup
 *.sql.gz
 *.sql.bz2
+*.wpress
+*.zip
 
 # WordPress Specific
 public_html/wp-content/ai1wm-backups/
 public_html/wp-content/updraft/
 public_html/wp-content/uploads/wp-migrate-db/
 public_html/wp-content/wflogs/
+public_html/wp-content/uploads/backwpup-*/
+public_html/wp-content/uploads/wp-clone/
